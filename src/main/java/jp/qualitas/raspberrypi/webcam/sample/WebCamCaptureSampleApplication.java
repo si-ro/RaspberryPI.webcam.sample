@@ -31,9 +31,18 @@ import com.github.sarxos.webcam.WebcamException;
 import com.github.sarxos.webcam.WebcamExceptionHandler;
 import com.github.sarxos.webcam.WebcamListener;
 import com.github.sarxos.webcam.WebcamResolution;
+import com.github.sarxos.webcam.ds.v4l4j.V4l4jDriver;
 
 public class WebCamCaptureSampleApplication extends Application implements
 		WebcamListener {
+	// set capture driver for v4l4j tool
+	static {
+		String osName = System.getProperty("os.name");
+		String arch = System.getProperty("os.arch");
+		if (osName.equals("Linux") & arch.equals("arm")) {
+			Webcam.setDriver(new V4l4jDriver());
+		}
+	}
 	/**
 	 * Logger instance.
 	 */
