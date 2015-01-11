@@ -116,11 +116,7 @@ public class WebCamCaptureSampleApplication extends Application implements
 		stage.setFullScreen(false);
 
 		// キャプチャの準備
-		try {
-			this._capture = Webcam.getWebcams().get(1);
-		} catch (Exception e) {
-			this._capture = Webcam.getDefault();
-		}
+		this._capture = Webcam.getDefault();
 		Dimension size = WebcamResolution.QVGA.getSize();
 		this._capture.setViewSize(size);
 		this._capture.addWebcamListener(this);
