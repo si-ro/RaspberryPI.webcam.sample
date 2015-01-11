@@ -15,7 +15,7 @@ export JDK_HOME=/usr/lib/jvm/jdk1.8.0_06/
 ```
 ### Setup v4l4j
 https://code.google.com/p/v4l4j/
-''' bash
+``` bash
 # Install what's required to build v4l4j with
 sudo apt-get install ant libjpeg8-dev libv4l-dev
 sudo apt-get remove openjdk-6-*
@@ -27,7 +27,7 @@ ant clean all
 sudo ant install
 # test
 java -cp /usr/share/java/v4l4j.jar -Djava.library.path=/usr/lib/jni au.edu.jcu.v4l4j.examples.DumpInfo
-'''
+```
 ## Run
 Run sample application using javafx-maven-plugin.  
 
