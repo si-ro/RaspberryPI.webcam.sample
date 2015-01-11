@@ -14,11 +14,11 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.stage.Stage;
 
@@ -333,20 +333,8 @@ public class WebCamCaptureSampleApplication extends Application implements
 					Platform.runLater(new Runnable() {
 						@Override
 						public void run() {
-							WritableImage wr = null;
-							BufferedImage bf = image;
-							if (bf != null) {
-								wr = new WritableImage(bf.getWidth(), bf
-										.getHeight());
-								PixelWriter pw = wr.getPixelWriter();
-								for (int x = 0; x < bf.getWidth(); x++) {
-									for (int y = 0; y < bf.getHeight(); y++) {
-										pw.setArgb(x, y, bf.getRGB(x, y));
-									}
-								}
-							}
-							//imageView.setImage(wr);
-							imageProperty.set(wr);
+							Image mainiamge = SwingFXUtils.toFXImage(image, null);
+							imageProperty.set(mainiamge);
 						}
 					});
 
