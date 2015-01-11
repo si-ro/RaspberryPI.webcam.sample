@@ -4,16 +4,12 @@ This use sarxos's Webcam-Capture Library(https://github.com/sarxos/webcam-captur
 
 ## Run
 Run sample application using javafx-maven-plugin.  
-1. get sample applicaton source. 
-```
-git clone https://github.com/si-ro/RaspberryPI.webcam.sample.git
-``` bash 
-2. change directory. 
-```
-cd RaspberryPI.webcam.sample
-``` bash 
-3. run application. 
-```
-mvn jfx:run
-``` bash
 
+``` bash
+# Using git, fetch sample applicaton source. 
+git clone https://github.com/si-ro/RaspberryPI.webcam.sample.git
+# Move the repository. 
+cd RaspberryPI.webcam.sample
+# run application. 
+mvn jfx:run
+```
