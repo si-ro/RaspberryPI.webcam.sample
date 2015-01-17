@@ -113,7 +113,7 @@ public class WebCamCaptureSampleApplication extends Application implements
 		root.getChildren().add(imageView);
 		stage.setScene(scene);
 		stage.show();
-		stage.setFullScreen(false);
+		stage.setFullScreen(true);
 
 		// キャプチャの準備
 		this._capture = Webcam.getDefault();
@@ -158,6 +158,7 @@ public class WebCamCaptureSampleApplication extends Application implements
 
 	@Override
 	public void webcamImageObtained(WebcamEvent arg0) {
+		arg0.getImage();
 
 	}
 
@@ -334,7 +335,7 @@ public class WebCamCaptureSampleApplication extends Application implements
 						@Override
 						public void run() {
 							WritableImage wr = null;
-							BufferedImage bf = image;
+							BufferedImage bf = tmp;
 							if (bf != null) {
 								wr = new WritableImage(bf.getWidth(), bf
 										.getHeight());
@@ -349,7 +350,7 @@ public class WebCamCaptureSampleApplication extends Application implements
 							imageProperty.set(wr);
 						}
 					});
-
+					tmp.flush();
 				}
 				errored = false;
 				image = tmp;
